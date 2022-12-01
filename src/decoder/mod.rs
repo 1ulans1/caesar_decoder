@@ -1,10 +1,10 @@
 extern crate reqwest;
 
-use tokio::runtime::Runtime; // 0.3.5
+use tokio::runtime::Runtime;
 
 #[derive(Debug)]
 pub struct Decode {
-    deciphered: String,
+    pub deciphered: String,
     shift: u8,
     pub word_matches: u8,
 }

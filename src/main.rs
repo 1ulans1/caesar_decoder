@@ -1,13 +1,12 @@
-mod decoder;
-
 extern crate core;
+
+mod decoder;
 
 use std::io;
 use crate::decoder::Decode;
 
-
 fn main() {
-    println!("Enter a name:");
+    println!("Enter a ciphertext: ");
     let mut message = String::new();
 
     io::stdin()
@@ -16,5 +15,5 @@ fn main() {
 
     let mut decode: Vec<Decode> = decoder::decode_message(message);
     let decode: Vec<Decode> = decode.into_iter().filter(|a| a.word_matches != 0).collect();
-    println!("{:?}", decode);
+    decode.iter().for_each(|d| println!("{}", d.deciphered));
 }
